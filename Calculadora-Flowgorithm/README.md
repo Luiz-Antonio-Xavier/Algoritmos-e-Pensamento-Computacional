@@ -116,8 +116,6 @@ Cada figura solicita as medidas necessárias para realizar o cálculo correspond
 
 Para executar o projeto, é necessário possuir o **Flowgorithm** instalado no computador.
 
-Para executar o projeto, é necessário ter o **Flowgorithm** instalado no computador.
-
 1. Baixe ou clone este repositório.
 2. Abra o arquivo `calculadora.fprg`.
 3. Execute o arquivo utilizando o Flowgorithm.
