@@ -29,8 +29,8 @@ Também foram abordados algoritmos como **Bubble Sort** e **Quick Sort**, aplica
 
 ```text
 📦 Algoritmos-e-Pensamento-Computacional
-  ├── 📦 calculadora-flowgorithm
-  └── 📦 calculadora-c
+  ├── 📦 calculadora-c
+  └── 📦 calculadora-flowgorithm
 ```
 
 ---
