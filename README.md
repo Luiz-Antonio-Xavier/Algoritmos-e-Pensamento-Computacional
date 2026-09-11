@@ -31,6 +31,7 @@ Também foram abordados algoritmos como **Bubble Sort** e **Quick Sort**, aplica
 📦 Algoritmos-e-Pensamento-Computacional
   ├── 📦 calculadora-c
   └── 📦 calculadora-flowgorithm
+  └── 📦 conversor-temperatura
 ```
 
 ---
