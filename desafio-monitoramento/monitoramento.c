@@ -1,4 +1,3 @@
-```c
 #include <stdio.h>
 
 int main() {
@@ -12,7 +11,6 @@ int main() {
 
     printf("=== MONITORAMENTO DE TEMPERATURA ===\n");
 
-    // Define o limite de temperatura
     do {
         printf("Digite o limite de temperatura: ");
         scanf("%f", &limite);
@@ -26,18 +24,15 @@ int main() {
     printf("\nLimite definido: %.2f C\n", limite);
     printf("Digite -999 para encerrar manualmente.\n");
 
-    // Inicia o monitoramento
     while (1) {
         printf("\nDigite a temperatura: ");
         scanf("%f", &temperatura);
 
-        // Encerra manualmente
         if (temperatura == -999) {
             printf("\nMonitoramento encerrado.\n");
             break;
         }
 
-        // Verifica se a temperatura e valida
         if (temperatura < -50 || temperatura > 150) {
             printf("Temperatura invalida! Digite entre -50 e 150 C.\n");
             continue;
@@ -46,7 +41,6 @@ int main() {
         quantidade++;
         soma += temperatura;
 
-        // Define a maior e menor temperatura
         if (quantidade == 1) {
             maior = temperatura;
             menor = temperatura;
@@ -60,7 +54,6 @@ int main() {
             }
         }
 
-        // Verifica se esta acima do limite
         if (temperatura > limite) {
             acimaLimite++;
             consecutivas++;
@@ -68,7 +61,6 @@ int main() {
             printf("Temperatura acima do limite!\n");
             printf("Consecutivas acima do limite: %d\n", consecutivas);
 
-            // Encerra apos 3 temperaturas consecutivas
             if (consecutivas == 3) {
                 printf("\nALERTA DE SEGURANCA!\n");
                 printf("3 temperaturas consecutivas acima do limite.\n");
@@ -77,12 +69,10 @@ int main() {
             }
 
         } else {
-            // Reinicia a contagem
             consecutivas = 0;
         }
     }
 
-    // Mostra os resultados
     if (quantidade > 0) {
         media = soma / quantidade;
         percentual = ((float)acimaLimite / quantidade) * 100;
@@ -100,4 +90,3 @@ int main() {
 
     return 0;
 }
-```
