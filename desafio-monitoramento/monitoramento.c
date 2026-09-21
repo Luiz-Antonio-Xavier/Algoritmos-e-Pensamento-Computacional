@@ -11,11 +11,18 @@ int main() {
 
     printf("=== MONITORAMENTO DE TEMPERATURA ===\n");
 
+    // Define e valida o limite
     do {
         printf("Digite o limite de temperatura: ");
-        scanf("%f", &limite);
 
-        if (limite < 0) {
+        if (scanf("%f", &limite) != 1) {
+            printf("Entrada invalida! Digite apenas numeros.\n");
+
+            while (getchar() != '\n') {
+            }
+
+            limite = -1;
+        } else if (limite < 0) {
             printf("Limite invalido. Digite um valor positivo.\n");
         }
 
@@ -24,15 +31,26 @@ int main() {
     printf("\nLimite definido: %.2f C\n", limite);
     printf("Digite -999 para encerrar manualmente.\n");
 
+    // Inicia o monitoramento
     while (1) {
         printf("\nDigite a temperatura: ");
-        scanf("%f", &temperatura);
 
+        if (scanf("%f", &temperatura) != 1) {
+            printf("Entrada invalida! Digite apenas numeros.\n");
+
+            while (getchar() != '\n') {
+            }
+
+            continue;
+        }
+
+        // Encerra manualmente
         if (temperatura == -999) {
             printf("\nMonitoramento encerrado.\n");
             break;
         }
 
+        // Verifica se a temperatura esta na faixa permitida
         if (temperatura < -50 || temperatura > 150) {
             printf("Temperatura invalida! Digite entre -50 e 150 C.\n");
             continue;
@@ -41,6 +59,7 @@ int main() {
         quantidade++;
         soma += temperatura;
 
+        // Define a maior e a menor temperatura
         if (quantidade == 1) {
             maior = temperatura;
             menor = temperatura;
@@ -54,6 +73,7 @@ int main() {
             }
         }
 
+        // Verifica se a temperatura esta acima do limite
         if (temperatura > limite) {
             acimaLimite++;
             consecutivas++;
@@ -61,6 +81,7 @@ int main() {
             printf("Temperatura acima do limite!\n");
             printf("Consecutivas acima do limite: %d\n", consecutivas);
 
+            // Encerra apos 3 temperaturas consecutivas acima do limite
             if (consecutivas == 3) {
                 printf("\nALERTA DE SEGURANCA!\n");
                 printf("3 temperaturas consecutivas acima do limite.\n");
@@ -69,10 +90,12 @@ int main() {
             }
 
         } else {
+            // Reinicia a contagem
             consecutivas = 0;
         }
     }
 
+    // Exibe o relatorio final
     if (quantidade > 0) {
         media = soma / quantidade;
         percentual = ((float)acimaLimite / quantidade) * 100;
